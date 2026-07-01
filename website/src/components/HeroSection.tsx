@@ -1,23 +1,26 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './HeroSection.css';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="hero" id="home">
       <div className="hero-overlay"></div>
-      <div className="container hero-content">
+      <div className="container">
         <div className="hero-text animate-fade-in">
-          <span className="hero-badge">Professional Swimming School in Setia Alam</span>
-          <h1 className="hero-title">Dive into Excellence at <br/> <span className="highlight">LumbaLoomba</span></h1>
+          <span className="hero-badge">{t('hero.badge', 'Professional Swimming School in Setia Alam')}</span>
+          <h1 className="hero-title">{t('hero.title1', 'Dive into Excellence at')} <br/> <span className="highlight">{t('hero.title2', 'LumbaLoomba')}</span></h1>
           <p className="hero-subtitle">
-            Master the water with our professional swimming academy. Whether you're a beginner or looking to perfect your strokes, we have the right program for you.
+            {t('hero.subtitle', 'Master the water with our professional swimming academy. Whether you\'re a beginner or looking to perfect your strokes, we have the right program for you.')}
           </p>
           <div className="hero-actions">
             <a href="#contact" className="btn-primary">
-              Start Swimming <ArrowRight size={20} style={{ marginLeft: '8px' }} />
+              {t('hero.cta_primary', 'Start Swimming')} <ArrowRight size={20} style={{ marginLeft: '8px' }} />
             </a>
-            <a href="#schedule" className="btn-secondary">View Schedule</a>
+            <a href="#schedule" className="btn-secondary">{t('hero.cta_secondary', 'View Schedule')}</a>
           </div>
         </div>
       </div>

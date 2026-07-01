@@ -1,28 +1,31 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './SocialFeedSection.css';
 
 const SocialFeedSection: React.FC = () => {
+  const { t } = useTranslation();
+
   const posts = [
     {
       id: 1,
       platform: 'instagram',
       image: 'https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       link: 'https://www.instagram.com/lumbaloomba/',
-      text: 'Our toddlers mastering their first bubbles! 🫧'
+      text: t('social.post1', 'Our toddlers mastering their first bubbles! 🫧')
     },
     {
       id: 2,
       platform: 'tiktok',
       image: 'https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       link: 'https://www.tiktok.com/@lumbaloomba',
-      text: 'Quick tips on front crawl breathing technique. Watch now!'
+      text: t('social.post2', 'Quick tips on front crawl breathing technique. Watch now!')
     },
     {
       id: 3,
       platform: 'facebook',
       image: 'https://images.unsplash.com/photo-1560090995-01632a28895b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       link: 'https://www.facebook.com/lumbaloomba/',
-      text: 'Congratulations to our advanced squad on their latest milestone. 🏆'
+      text: t('social.post3', 'Congratulations to our advanced squad on their latest milestone. 🏆')
     }
   ];
 
@@ -30,8 +33,8 @@ const SocialFeedSection: React.FC = () => {
     <section className="social-feed-section" id="social">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title" style={{ marginBottom: '10px' }}>Join Our Community</h2>
-          <p className="section-subtitle">Follow us on social media for the latest updates, tips, and academy highlights.</p>
+          <h2 className="section-title" style={{ marginBottom: '10px' }}>{t('social.title', 'Join Our Community')}</h2>
+          <p className="section-subtitle">{t('social.subtitle', 'Follow us on social media for the latest updates, tips, and academy highlights.')}</p>
         </div>
         
         <div className="social-grid">

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './Footer.css';
 
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
       <div className="container">
@@ -14,7 +17,7 @@ const Footer: React.FC = () => {
               <span>LumbaLoomba</span>
             </div>
             <p className="footer-desc">
-              Empowering swimmers of all ages to conquer the water with confidence, skill, and safety. Dive into excellence with us.
+              {t('footer.desc', 'Empowering swimmers of all ages to conquer the water with confidence, skill, and safety. Dive into excellence with us.')}
             </p>
             <div className="social-links">
               <a href="https://www.facebook.com/lumbaloomba/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -31,32 +34,32 @@ const Footer: React.FC = () => {
           
           <div className="footer-links">
             <div className="link-group">
-              <h4>Quick Links</h4>
+              <h4>{t('footer.quick_links', 'Quick Links')}</h4>
               <ul>
-                <li><a href="/#home">Home</a></li>
-                <li><a href="/#about">About Us</a></li>
-                <li><a href="/#schedule">Programs & Schedule</a></li>
-                <li><a href="/#reviews">Reviews</a></li>
+                <li><a href="/#home">{t('nav.home', 'Home')}</a></li>
+                <li><a href="/#about">{t('nav.about', 'About Us')}</a></li>
+                <li><a href="/#schedule">{t('nav.schedule', 'Programs & Schedule')}</a></li>
+                <li><a href="/#reviews">{t('nav.reviews', 'Reviews')}</a></li>
               </ul>
             </div>
             
             <div className="link-group">
-              <h4>Legal</h4>
+              <h4>{t('footer.legal', 'Legal')}</h4>
               <ul>
-                <li><Link to="/privacy">Privacy Policy</Link></li>
-                <li><Link to="/terms">Terms of Service</Link></li>
-                <li><Link to="/safety">Safety Guidelines</Link></li>
+                <li><Link to="/privacy">{t('footer.privacy', 'Privacy Policy')}</Link></li>
+                <li><Link to="/terms">{t('footer.terms', 'Terms of Service')}</Link></li>
+                <li><Link to="/safety">{t('footer.safety', 'Safety Guidelines')}</Link></li>
               </ul>
             </div>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} LumbaLoomba Swimming Academy. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} LumbaLoomba Swimming Academy. {t('footer.rights', 'All rights reserved.')}</p>
         </div>
         
         <div className="footer-picad" style={{ textAlign: 'center', marginTop: '20px', fontSize: '0.85rem', color: 'var(--text-tertiary)', borderTop: '1px solid var(--surface-border)', paddingTop: '20px' }}>
-          <p>Template designed by <a href="https://picadgroup.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'underline' }}>PICAD</a> and not endorsed by LumbaLoomba.</p>
+          <p>{t('footer.picad', 'Template designed by PICAD and not endorsed by LumbaLoomba.')}</p>
         </div>
       </div>
     </footer>

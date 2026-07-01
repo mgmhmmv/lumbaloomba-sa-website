@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "about": "About",
+    "schedule": "Schedule",
+    "pricing": "Pricing",
+    "reviews": "Reviews",
+    "community": "Community",
+    "contact": "Contact",
+    "register": "Register Now"
+  },
+  "hero": {
+    "title1": "Master the Water.",
+    "title2": "Conquer Your Fear.",
+    "subtitle": "Shah Alam's premier swimming academy for toddlers, adults, and special needs.",
+    "cta_primary": "Start Your Journey",
+    "cta_secondary": "View Schedule"
+  },
+  "info": {
+    "about_title": "About Us",
+    "about_desc1": "At LumbaLoomba Swimming Academy, we believe that swimming is an essential life skill that should be accessible to everyone.",
+    "about_desc2": "Our certified coaches specialize in water confidence, stroke correction, and specialized therapy in a safe, controlled environment.",
+    "programs_title": "Our Programs",
+    "prog_kids_title": "Toddlers & Kids",
+    "prog_kids_desc": "Water survival and basic strokes in a fun environment.",
+    "prog_adults_title": "Adult Classes",
+    "prog_adults_desc": "Overcome fear and build stamina at your own pace.",
+    "prog_special_title": "Special Needs Therapy",
+    "prog_special_desc": "Tailored 1-on-1 sessions focusing on motor skills."
+  },
+  "pricing": {
+    "title_start": "Investment in",
+    "title_highlight": "Safety",
+    "subtitle": "Transparent fee structures designed for every swimmer's journey. Choose the plan that fits your goals.",
+    "plan_kids_title": "Kids & Toddlers",
+    "plan_kids_desc": "Perfect for building early water confidence and basic strokes.",
+    "plan_adults_title": "Adult Classes",
+    "plan_adults_desc": "Overcome fear and master swimming at your own pace.",
+    "plan_special_title": "Private / Therapy",
+    "plan_special_desc": "1-on-1 personalized attention for rapid progress or special needs.",
+    "most_popular": "Most Popular",
+    "month": "/ month",
+    "feat_sessions": "4 sessions per month",
+    "feat_small_group": "Small group focus (max 5)",
+    "feat_progress": "Progress tracking booklet",
+    "feat_certificate": "Certificate upon level completion",
+    "feat_breath": "Breath control techniques",
+    "feat_stroke": "Stroke correction & stamina",
+    "feat_flexible": "Flexible evening schedules",
+    "feat_exclusive": "Exclusive 1-on-1 coaching",
+    "feat_customized": "Customized lesson plans",
+    "feat_therapy": "Specialized therapy techniques",
+    "cta_enroll": "Enroll Now",
+    "cta_contact": "Contact Coach",
+    "note": "* One-time registration fee of RM 50 applies for all new enrollments. Family discounts available."
+  },
+  "reviews": {
+    "title": "What Our Swimmers Say",
+    "subtitle": "Real stories from our LumbaLoomba community."
+  },
+  "social": {
+    "title": "Join Our Community",
+    "subtitle": "Follow us on social media for the latest updates, tips, and swimmer highlights.",
+    "follow": "Follow on Instagram"
+  },
+  "contact": {
+    "title_start": "Get in",
+    "title_highlight": "Touch",
+    "subtitle": "Have questions? We're here to help you start your swimming journey.",
+    "location_title": "Location",
+    "contact_title": "Contact",
+    "hours_title": "Opening Hours",
+    "hours_wed_sun": "Wed - Sun: 10:00 AM - 7:00 PM",
+    "hours_tue": "Tuesday: 10:00 AM - 7:00 PM",
+    "hours_mon": "Monday: Closed",
+    "cta_whatsapp": "Chat on WhatsApp"
+  },
+  "register": {
+    "title_start": "Ready to",
+    "title_highlight": "Dive In?",
+    "subtitle": "Secure your spot today. Fill out the form below and our team will contact you to confirm your schedule.",
+    "student_name": "Student's Full Name",
+    "parent_name": "Parent/Guardian Name (If under 18)",
+    "phone": "WhatsApp Number",
+    "email": "Email Address",
+    "program": "Select Program",
+    "prog_opt_kids": "Toddlers & Kids",
+    "prog_opt_adults": "Adult Classes",
+    "prog_opt_special": "Special Needs Therapy",
+    "message": "Any special requirements or questions?",
+    "submit": "Submit Registration"
+  },
+  "footer": {
+    "desc": "Empowering swimmers of all ages to conquer the water with confidence, skill, and safety. Dive into excellence with us.",
+    "quick_links": "Quick Links",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "safety": "Safety Guidelines",
+    "rights": "All rights reserved.",
+    "picad": "Template designed by PICAD and not endorsed by LumbaLoomba."
+  }
+}

@@ -184,3 +184,20 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 }
+
+.lang-switcher {
+  background: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.lang-switcher:hover {
+  background: var(--primary);
+  color: white;
+}

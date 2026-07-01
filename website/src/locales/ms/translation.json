@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "about": "Tentang Kami",
+    "schedule": "Jadual",
+    "pricing": "Harga",
+    "reviews": "Ulasan",
+    "community": "Komuniti",
+    "contact": "Hubungi",
+    "register": "Daftar Sekarang"
+  },
+  "hero": {
+    "title1": "Kuasai Air.",
+    "title2": "Atasi Ketakutan Anda.",
+    "subtitle": "Akademi renang terkemuka di Shah Alam untuk kanak-kanak, dewasa, dan keperluan khas.",
+    "cta_primary": "Mulakan Perjalanan Anda",
+    "cta_secondary": "Lihat Jadual"
+  },
+  "info": {
+    "about_title": "Tentang Kami",
+    "about_desc1": "Di Akademi Renang LumbaLoomba, kami percaya bahawa berenang adalah kemahiran hidup yang penting dan harus boleh diakses oleh semua orang.",
+    "about_desc2": "Jurulatih bertauliah kami pakar dalam membina keyakinan air, pembetulan gaya renang, dan terapi khusus dalam persekitaran yang selamat dan terkawal.",
+    "programs_title": "Program Kami",
+    "prog_kids_title": "Kanak-kanak & Balita",
+    "prog_kids_desc": "Ikhtiar hidup di air dan gaya asas dalam persekitaran yang menyeronokkan.",
+    "prog_adults_title": "Kelas Dewasa",
+    "prog_adults_desc": "Atasi ketakutan dan bina stamina mengikut rentak anda sendiri.",
+    "prog_special_title": "Terapi Keperluan Khas",
+    "prog_special_desc": "Sesi 1-dengan-1 yang disesuaikan memfokuskan pada kemahiran motor."
+  },
+  "pricing": {
+    "title_start": "Pelaburan untuk",
+    "title_highlight": "Keselamatan",
+    "subtitle": "Struktur yuran yang telus direka untuk setiap perenang. Pilih pelan yang sesuai dengan matlamat anda.",
+    "plan_kids_title": "Kanak-kanak & Balita",
+    "plan_kids_desc": "Sesuai untuk membina keyakinan air awal dan gaya asas.",
+    "plan_adults_title": "Kelas Dewasa",
+    "plan_adults_desc": "Atasi ketakutan dan kuasai renangan mengikut rentak anda.",
+    "plan_special_title": "Persendirian / Terapi",
+    "plan_special_desc": "Perhatian peribadi 1-dengan-1 untuk kemajuan pesat atau keperluan khas.",
+    "most_popular": "Paling Popular",
+    "month": "/ bulan",
+    "feat_sessions": "4 sesi sebulan",
+    "feat_small_group": "Fokus kumpulan kecil (maks 5)",
+    "feat_progress": "Buku rekod kemajuan",
+    "feat_certificate": "Sijil tamat tahap",
+    "feat_breath": "Teknik kawalan pernafasan",
+    "feat_stroke": "Pembetulan gaya & stamina",
+    "feat_flexible": "Jadual malam yang fleksibel",
+    "feat_exclusive": "Latihan 1-dengan-1 eksklusif",
+    "feat_customized": "Pelan pelajaran tersuai",
+    "feat_therapy": "Teknik terapi khusus",
+    "cta_enroll": "Daftar Sekarang",
+    "cta_contact": "Hubungi Jurulatih",
+    "note": "* Yuran pendaftaran pendaftaran baru sebanyak RM 50 dikenakan. Diskaun keluarga disediakan."
+  },
+  "reviews": {
+    "title": "Apa Kata Perenang Kami",
+    "subtitle": "Kisah sebenar dari komuniti LumbaLoomba kami."
+  },
+  "social": {
+    "title": "Sertai Komuniti Kami",
+    "subtitle": "Ikuti kami di media sosial untuk maklumat terkini, petua, dan sorotan perenang.",
+    "follow": "Ikuti di Instagram"
+  },
+  "contact": {
+    "title_start": "Hubungi",
+    "title_highlight": "Kami",
+    "subtitle": "Ada soalan? Kami sedia membantu anda memulakan perjalanan renang anda.",
+    "location_title": "Lokasi",
+    "contact_title": "Hubungi",
+    "hours_title": "Waktu Operasi",
+    "hours_wed_sun": "Rabu - Ahad: 10:00 PG - 7:00 PTG",
+    "hours_tue": "Selasa: 10:00 PG - 7:00 PTG",
+    "hours_mon": "Isnin: Tutup",
+    "cta_whatsapp": "Mesej di WhatsApp"
+  },
+  "register": {
+    "title_start": "Sedia untuk",
+    "title_highlight": "Mula?",
+    "subtitle": "Tempah tempat anda hari ini. Isi borang di bawah dan pasukan kami akan menghubungi anda untuk mengesahkan jadual.",
+    "student_name": "Nama Penuh Pelajar",
+    "parent_name": "Nama Ibu Bapa/Penjaga (Jika bawah 18)",
+    "phone": "Nombor WhatsApp",
+    "email": "Alamat E-mel",
+    "program": "Pilih Program",
+    "prog_opt_kids": "Kanak-kanak & Balita",
+    "prog_opt_adults": "Kelas Dewasa",
+    "prog_opt_special": "Terapi Keperluan Khas",
+    "message": "Sebarang keperluan khas atau soalan?",
+    "submit": "Hantar Pendaftaran"
+  },
+  "footer": {
+    "desc": "Memperkasakan perenang dari semua peringkat umur untuk menakluk air dengan keyakinan, kemahiran, dan keselamatan.",
+    "quick_links": "Pautan Pantas",
+    "legal": "Perundangan",
+    "privacy": "Dasar Privasi",
+    "terms": "Terma Perkhidmatan",
+    "safety": "Garis Panduan Keselamatan",
+    "rights": "Hak cipta terpelihara.",
+    "picad": "Templat direka oleh PICAD dan tidak disokong oleh LumbaLoomba."
+  }
+}

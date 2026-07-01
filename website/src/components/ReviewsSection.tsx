@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './ReviewsSection.css';
 import { Star } from 'lucide-react';
 
 const ReviewsSection: React.FC = () => {
+  const { t } = useTranslation();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const reviews = [
     {
       name: "nurulnadia jamaludin",
@@ -43,20 +65,20 @@ const ReviewsSection: React.FC = () => {
   ];
 
   return (
-    <section className="reviews-section" id="reviews">
+    <section className="reviews-section" id="reviews" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">What Our Swimmers Say</h2>
+        <h2 className="section-title">{t('reviews.title', 'What Our Swimmers Say')}</h2>
         
         <div className="reviews-grid">
           {reviews.map((review, index) => (
-            <div className={`review-card animate-fade-in delay-${(index % 3 + 1) * 100}`} key={index}>
+            <div className={`review-card ${isVisible ? 'animate-slide-up' : ''}`} key={index} style={{ animationDelay: `${(index % 3 + 1) * 100}ms` }}>
               <div className="review-header">
                 <div className="reviewer-avatar">
                   {review.name.charAt(0).toUpperCase()}
                 </div>
                 <div className="reviewer-info">
                   <h4>{review.name}</h4>
-                  <span>{review.time}</span>
+                  <span>{t(`reviews.time.${index}`, review.time)}</span>
                 </div>
                 <div className="review-rating">
                   {[...Array(review.rating)].map((_, i) => (
@@ -64,7 +86,7 @@ const ReviewsSection: React.FC = () => {
                   ))}
                 </div>
               </div>
-              <p className="review-text">"{review.text}"</p>
+              <p className="review-text">"{t(`reviews.text.${index}`, review.text)}"</p>
             </div>
           ))}
         </div>
