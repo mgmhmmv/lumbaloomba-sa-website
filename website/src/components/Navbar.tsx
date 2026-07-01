@@ -79,11 +79,12 @@ const Navbar: React.FC = () => {
           <a href="/#reviews">{t('nav.reviews', 'Reviews')}</a>
           <a href="/#social">{t('nav.community', 'Community')}</a>
           <a href="/#contact" className="nav-contact">{t('nav.contact', 'Contact')}</a>
-          <a href="/#register" className="nav-cta">{t('nav.register', 'Register')}</a>
           
           <button onClick={toggleLanguage} className="lang-switcher">
             {i18n.language === 'en' ? 'BM' : 'EN'}
           </button>
+
+          <a href="/#register" className="nav-cta">{t('nav.register', 'Register')}</a>
         </div>
 
         {/* Mobile Menu Button */}
