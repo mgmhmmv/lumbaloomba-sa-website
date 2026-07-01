@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import './RegistrationSection.css';
 import { Send } from 'lucide-react';
 
@@ -19,7 +21,6 @@ const RegistrationSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder for actual form submission logic (e.g., Formspree)
     alert(t('register.alert_success', 'Thank you for registering! We will contact you via WhatsApp shortly.'));
     setFormData({
       parentName: '',
@@ -30,11 +31,44 @@ const RegistrationSection: React.FC = () => {
     });
   };
 
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const textVariants: Variants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { type: "spring", stiffness: 50, damping: 20 } 
+    }
+  };
+
+  const formVariants: Variants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { type: "spring", stiffness: 50, damping: 20 } 
+    }
+  };
+
   return (
     <section className="registration-section" id="register">
       <div className="container">
-        <div className="registration-wrapper">
-          <div className="registration-content animate-fade-in delay-100">
+        <motion.div 
+          className="registration-wrapper"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div className="registration-content" variants={textVariants}>
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>{t('register.title', 'Join the Academy')}</h2>
             <p className="registration-desc">
               {t('register.description', 'Ready to dive in? Register your interest today and our team will get in touch with you to finalize your enrollment and schedule.')}
@@ -44,9 +78,9 @@ const RegistrationSection: React.FC = () => {
               <li>🛡️ {t('register.benefit2', 'Safe, indoor facilities')}</li>
               <li>🏆 {t('register.benefit3', 'Proven progression methodology')}</li>
             </ul>
-          </div>
+          </motion.div>
           
-          <div className="registration-form-container animate-fade-in delay-200">
+          <motion.div className="registration-form-container" variants={formVariants}>
             <form className="registration-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="parentName">{t('register.parent_name', "Parent's Name")}</label>
@@ -115,12 +149,17 @@ const RegistrationSection: React.FC = () => {
                 </select>
               </div>
 
-              <button type="submit" className="btn-primary form-submit">
+              <motion.button 
+                type="submit" 
+                className="btn-primary form-submit"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 {t('register.submit', 'Submit Registration')} <Send size={18} style={{ marginLeft: '8px' }} />
-              </button>
+              </motion.button>
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

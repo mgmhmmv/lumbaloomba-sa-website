@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import './InfoSection.css';
 import { Clock, Calendar, AlertCircle } from 'lucide-react';
 
@@ -11,13 +13,45 @@ const InfoSection: React.FC = () => {
     { day: t('info.schedule_closed_day', 'Monday'), time: t('info.schedule_closed', 'Closed') }
   ];
 
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { type: "spring", stiffness: 60, damping: 15 } 
+    }
+  };
+
   return (
     <section className="info-section" id="schedule">
       <div className="container">
-        <h2 className="section-title">{t('info.title', 'Schedule & Info')}</h2>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          {t('info.title', 'Schedule & Info')}
+        </motion.h2>
         
-        <div className="info-grid">
-          <div className="info-card animate-fade-in delay-100">
+        <motion.div 
+          className="info-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div className="info-card" variants={cardVariants} whileHover={{ y: -8, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}>
             <div className="card-icon-wrapper">
               <Clock className="card-icon" />
             </div>
@@ -32,9 +66,9 @@ const InfoSection: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="info-card animate-fade-in delay-200">
+          <motion.div className="info-card" variants={cardVariants} whileHover={{ y: -8, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}>
             <div className="card-icon-wrapper">
               <Calendar className="card-icon" />
             </div>
@@ -47,9 +81,9 @@ const InfoSection: React.FC = () => {
               <span className="program-tag">{t('info.prog_4', 'Competitive')}</span>
               <span className="program-tag">{t('info.prog_5', 'Private Coaching')}</span>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="info-card highlight-card animate-fade-in delay-300">
+          <motion.div className="info-card highlight-card" variants={cardVariants} whileHover={{ y: -8, boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}>
             <div className="card-icon-wrapper">
               <AlertCircle className="card-icon" />
             </div>
@@ -60,8 +94,8 @@ const InfoSection: React.FC = () => {
               <li>{t('info.benefit_3', 'Small Class Sizes for Personal Attention')}</li>
               <li>{t('info.benefit_4', 'Proven Progression Methodology')}</li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

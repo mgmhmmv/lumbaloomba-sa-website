@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import './SocialFeedSection.css';
 
 const SocialFeedSection: React.FC = () => {
@@ -29,25 +31,64 @@ const SocialFeedSection: React.FC = () => {
     }
   ];
 
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.9, y: 30 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      transition: { type: "spring", stiffness: 60, damping: 15 } 
+    }
+  };
+
   return (
     <section className="social-feed-section" id="social">
       <div className="container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="section-title" style={{ marginBottom: '10px' }}>{t('social.title', 'Join Our Community')}</h2>
           <p className="section-subtitle">{t('social.subtitle', 'Follow us on social media for the latest updates, tips, and academy highlights.')}</p>
-        </div>
+        </motion.div>
         
-        <div className="social-grid">
-          {posts.map((post, index) => (
-            <a 
+        <motion.div 
+          className="social-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {posts.map((post) => (
+            <motion.a 
               href={post.link} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className={`social-card animate-fade-in delay-${(index + 1) * 100}`} 
+              className="social-card" 
               key={post.id}
+              variants={cardVariants}
+              whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
             >
               <div className="social-img-wrapper">
-                <img src={post.image} alt={`Post from ${post.platform}`} className="social-img" />
+                <motion.img 
+                  src={post.image} 
+                  alt={`Post from ${post.platform}`} 
+                  className="social-img" 
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                />
                 <div className="social-overlay">
                   <div className="social-icon">
                     {post.platform === 'instagram' && (
@@ -63,9 +104,9 @@ const SocialFeedSection: React.FC = () => {
                   <p>{post.text}</p>
                 </div>
               </div>
-            </a>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

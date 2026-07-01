@@ -1,28 +1,80 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import './HeroSection.css';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { type: "spring", stiffness: 50, damping: 15 }
+    }
+  };
+
   return (
     <section className="hero" id="home">
-      <div className="hero-overlay"></div>
+      <motion.div 
+        className="hero-overlay"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      ></motion.div>
       <div className="container hero-content">
-        <div className="hero-text animate-fade-in">
-          <span className="hero-badge">{t('hero.badge', 'Professional Swimming School in Setia Alam')}</span>
-          <h1 className="hero-title">{t('hero.title1', 'Dive into Excellence at')} <br/> <span className="highlight">{t('hero.title2', 'LumbaLoomba')}</span></h1>
-          <p className="hero-subtitle">
+        <motion.div 
+          className="hero-text"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={itemVariants}>
+            <span className="hero-badge">{t('hero.badge', 'Professional Swimming School in Setia Alam')}</span>
+          </motion.div>
+          
+          <motion.h1 className="hero-title" variants={itemVariants}>
+            {t('hero.title1', 'Dive into Excellence at')} <br/> 
+            <span className="highlight">{t('hero.title2', 'LumbaLoomba')}</span>
+          </motion.h1>
+          
+          <motion.p className="hero-subtitle" variants={itemVariants}>
             {t('hero.subtitle', 'Master the water with our professional swimming academy. Whether you\'re a beginner or looking to perfect your strokes, we have the right program for you.')}
-          </p>
-          <div className="hero-actions">
-            <a href="#contact" className="btn-primary">
+          </motion.p>
+          
+          <motion.div className="hero-actions" variants={itemVariants}>
+            <motion.a 
+              href="#contact" 
+              className="btn-primary"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               {t('hero.cta_primary', 'Start Swimming')} <ArrowRight size={20} style={{ marginLeft: '8px' }} />
-            </a>
-            <a href="#schedule" className="btn-secondary">{t('hero.cta_secondary', 'View Schedule')}</a>
-          </div>
-        </div>
+            </motion.a>
+            <motion.a 
+              href="#schedule" 
+              className="btn-secondary"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {t('hero.cta_secondary', 'View Schedule')}
+            </motion.a>
+          </motion.div>
+        </motion.div>
       </div>
       <div className="wave-divider">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

@@ -1,29 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import './ReviewsSection.css';
 import { Star } from 'lucide-react';
 
 const ReviewsSection: React.FC = () => {
   const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const reviews = [
     {
@@ -64,14 +48,52 @@ const ReviewsSection: React.FC = () => {
     }
   ];
 
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.9, y: 30 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      transition: { type: "spring", stiffness: 60, damping: 15 } 
+    }
+  };
+
   return (
     <section className="reviews-section" id="reviews" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">{t('reviews.title', 'What Our Swimmers Say')}</h2>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          {t('reviews.title', 'What Our Swimmers Say')}
+        </motion.h2>
         
-        <div className="reviews-grid">
+        <motion.div 
+          className="reviews-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {reviews.map((review, index) => (
-            <div className={`review-card ${isVisible ? 'animate-slide-up' : ''}`} key={index} style={{ animationDelay: `${(index % 3 + 1) * 100}ms` }}>
+            <motion.div 
+              className="review-card" 
+              key={index} 
+              variants={cardVariants}
+              whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}
+            >
               <div className="review-header">
                 <div className="reviewer-avatar">
                   {review.name.charAt(0).toUpperCase()}
@@ -87,15 +109,21 @@ const ReviewsSection: React.FC = () => {
                 </div>
               </div>
               <p className="review-text">"{t(`reviews.text.${index}`, review.text)}"</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="reviews-cta text-center">
+        <motion.div 
+          className="reviews-cta text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
           <a href="https://maps.app.goo.gl/BDm8q54Le9rth53g7" target="_blank" rel="noopener noreferrer" className="btn-primary">
             Read More on Google Maps
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
