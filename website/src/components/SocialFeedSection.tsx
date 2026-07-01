@@ -6,7 +6,7 @@ const SocialFeedSection: React.FC = () => {
     {
       id: 1,
       platform: 'instagram',
-      image: 'https://images.unsplash.com/photo-1519315901367-f34f9274ceb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       link: 'https://www.instagram.com/lumbaloomba/',
       text: 'Our toddlers mastering their first bubbles! 🫧'
     },
