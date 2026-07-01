@@ -31,22 +31,25 @@ const Navbar: React.FC = () => {
 
   const closeMenu = () => setMobileMenuOpen(false);
 
-  const menuVariants: Variants = {
+  const backdropVariants: Variants = {
+    closed: { opacity: 0, transition: { duration: 0.3 } },
+    open: { opacity: 1, transition: { duration: 0.3 } }
+  };
+
+  const drawerVariants: Variants = {
     closed: {
-      opacity: 0,
-      clipPath: "circle(0px at calc(100% - 40px) 40px)",
-      transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] }
+      x: "100%",
+      transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] }
     },
     open: {
-      opacity: 1,
-      clipPath: "circle(150vh at calc(100% - 40px) 40px)",
-      transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1], staggerChildren: 0.1, delayChildren: 0.2 }
+      x: 0,
+      transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1], staggerChildren: 0.05, delayChildren: 0.1 }
     }
   };
 
   const itemVariants: Variants = {
-    closed: { opacity: 0, y: 30 },
-    open: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 20 } }
+    closed: { opacity: 0, x: 20 },
+    open: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 70, damping: 20 } }
   };
 
   return (
@@ -77,6 +80,7 @@ const Navbar: React.FC = () => {
           className="mobile-menu-btn" 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle navigation"
+          style={{ zIndex: 1002 }}
         >
           <div className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
             <span></span>
@@ -85,33 +89,42 @@ const Navbar: React.FC = () => {
           </div>
         </button>
 
-        {/* Mobile Menu Overlay */}
+        {/* Mobile Menu Drawer */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div 
-              className="mobile-menu-overlay"
+              className="mobile-menu-backdrop"
               initial="closed"
               animate="open"
               exit="closed"
-              variants={menuVariants}
+              variants={backdropVariants}
+              onClick={closeMenu}
             >
-              <div className="mobile-menu-content">
-                <motion.a variants={itemVariants} href="/#about" onClick={closeMenu}>{t('nav.about', 'About')}</motion.a>
-                <motion.a variants={itemVariants} href="/#pricing" onClick={closeMenu}>{t('nav.pricing', 'Pricing')}</motion.a>
-                <motion.div variants={itemVariants}>
-                  <Link to="/team" onClick={closeMenu} style={{ textDecoration: 'none' }}>{t('nav.team', 'The Team')}</Link>
-                </motion.div>
-                <motion.a variants={itemVariants} href="/#reviews" onClick={closeMenu}>{t('nav.reviews', 'Reviews')}</motion.a>
-                <motion.a variants={itemVariants} href="/#social" onClick={closeMenu}>{t('nav.community', 'Community')}</motion.a>
-                <motion.a variants={itemVariants} href="/#contact" onClick={closeMenu}>{t('nav.contact', 'Contact')}</motion.a>
-                <motion.a variants={itemVariants} href="/#register" onClick={closeMenu} className="nav-cta">{t('nav.register', 'Register')}</motion.a>
+              <motion.div 
+                className="mobile-menu-drawer"
+                variants={drawerVariants}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="mobile-menu-links">
+                  <motion.a variants={itemVariants} href="/#about" onClick={closeMenu}>{t('nav.about', 'About')}</motion.a>
+                  <motion.a variants={itemVariants} href="/#pricing" onClick={closeMenu}>{t('nav.pricing', 'Pricing')}</motion.a>
+                  <motion.div variants={itemVariants}>
+                    <Link to="/team" onClick={closeMenu} style={{ textDecoration: 'none' }}>{t('nav.team', 'The Team')}</Link>
+                  </motion.div>
+                  <motion.a variants={itemVariants} href="/#reviews" onClick={closeMenu}>{t('nav.reviews', 'Reviews')}</motion.a>
+                  <motion.a variants={itemVariants} href="/#social" onClick={closeMenu}>{t('nav.community', 'Community')}</motion.a>
+                  <motion.a variants={itemVariants} href="/#contact" onClick={closeMenu}>{t('nav.contact', 'Contact')}</motion.a>
+                </div>
                 
-                <motion.div variants={itemVariants}>
-                  <button onClick={toggleLanguage} className="lang-switcher mobile-lang">
-                    {i18n.language === 'en' ? 'Switch to BM' : 'Switch to EN'}
-                  </button>
-                </motion.div>
-              </div>
+                <div className="mobile-menu-footer">
+                  <motion.a variants={itemVariants} href="/#register" onClick={closeMenu} className="nav-cta">{t('nav.register', 'Register Now')}</motion.a>
+                  <motion.div variants={itemVariants}>
+                    <button onClick={toggleLanguage} className="lang-switcher mobile-lang">
+                      {i18n.language === 'en' ? 'Switch to BM' : 'Switch to EN'}
+                    </button>
+                  </motion.div>
+                </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
