@@ -1,6 +1,6 @@
 import React from 'react';
 import './ContactSection.css';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   return (
