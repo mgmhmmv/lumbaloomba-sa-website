@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 
@@ -32,19 +33,19 @@ const Footer: React.FC = () => {
             <div className="link-group">
               <h4>Quick Links</h4>
               <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#schedule">Programs & Schedule</a></li>
-                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#about">About Us</a></li>
+                <li><a href="/#schedule">Programs & Schedule</a></li>
+                <li><a href="/#reviews">Reviews</a></li>
               </ul>
             </div>
             
             <div className="link-group">
               <h4>Legal</h4>
               <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Safety Guidelines</a></li>
+                <li><Link to="/privacy">Privacy Policy</Link></li>
+                <li><Link to="/terms">Terms of Service</Link></li>
+                <li><Link to="/safety">Safety Guidelines</Link></li>
               </ul>
             </div>
           </div>
@@ -52,6 +53,10 @@ const Footer: React.FC = () => {
         
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} LumbaLoomba Swimming Academy. All rights reserved.</p>
+        </div>
+        
+        <div className="footer-picad" style={{ textAlign: 'center', marginTop: '20px', fontSize: '0.85rem', color: 'var(--text-tertiary)', borderTop: '1px solid var(--surface-border)', paddingTop: '20px' }}>
+          <p>Template designed by <a href="https://picadgroup.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'underline' }}>PICAD</a> and not endorsed by LumbaLoomba.</p>
         </div>
       </div>
     </footer>

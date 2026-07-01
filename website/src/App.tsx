@@ -1,27 +1,22 @@
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import HeroSection from './components/HeroSection'
-import InfoSection from './components/InfoSection'
-import ReviewsSection from './components/ReviewsSection'
-import SocialFeedSection from './components/SocialFeedSection'
-import ContactSection from './components/ContactSection'
-import RegistrationSection from './components/RegistrationSection'
 import Footer from './components/Footer'
+import Home from './pages/Home'
+import LegalPage from './pages/LegalPage'
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-      <main>
-        <HeroSection />
-        <InfoSection />
-        <ReviewsSection />
-        <SocialFeedSection />
-        <ContactSection />
-        <RegistrationSection />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy" element={<LegalPage type="privacy" />} />
+        <Route path="/terms" element={<LegalPage type="terms" />} />
+        <Route path="/safety" element={<LegalPage type="safety" />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   )
 }
 
