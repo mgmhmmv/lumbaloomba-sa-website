@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +21,12 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled || !isHome ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <a href="#" className="nav-logo">
+        <Link to="/" className="nav-logo">
           <img src="/logo.jpg" alt="LumbaLoomba Swimming Academy" />
           <span className="nav-brand">LumbaLoomba</span>
-        </a>
+        </Link>
         
         <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <a href="/#about" onClick={() => setMobileMenuOpen(false)}>About</a>
