@@ -6,6 +6,7 @@ import ReviewsSection from '../components/ReviewsSection';
 import SocialFeedSection from '../components/SocialFeedSection';
 import ContactSection from '../components/ContactSection';
 import RegistrationSection from '../components/RegistrationSection';
+import FloatingWhatsApp from '../components/FloatingWhatsApp';
 
 const Home: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const Home: React.FC = () => {
       <SocialFeedSection />
       <ContactSection />
       <RegistrationSection />
+      <FloatingWhatsApp />
     </main>
   );
 };

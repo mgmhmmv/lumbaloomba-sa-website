@@ -191,11 +191,36 @@
 
 @media (max-width: 768px) {
   .pricing-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 -20px;
+    -webkit-overflow-scrolling: touch;
+    max-width: none;
+    scroll-behavior: smooth;
+  }
+  
+  /* Hide scrollbar for a cleaner look */
+  .pricing-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .pricing-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .pricing-card {
+    flex: 0 0 85%;
+    max-width: 320px;
+    scroll-snap-align: center;
   }
   
   .pricing-card.popular {
-    grid-column: 1;
+    grid-column: auto;
+    max-width: 320px;
+    margin: 0;
   }
 }

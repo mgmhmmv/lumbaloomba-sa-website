@@ -9,7 +9,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="hero" id="home">
       <div className="hero-overlay"></div>
-      <div className="container">
+      <div className="container hero-content">
         <div className="hero-text animate-fade-in">
           <span className="hero-badge">{t('hero.badge', 'Professional Swimming School in Setia Alam')}</span>
           <h1 className="hero-title">{t('hero.title1', 'Dive into Excellence at')} <br/> <span className="highlight">{t('hero.title2', 'LumbaLoomba')}</span></h1>
