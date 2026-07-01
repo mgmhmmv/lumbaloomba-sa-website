@@ -24,6 +24,17 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [mobileMenuOpen]);
+
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'ms' : 'en';
     i18n.changeLanguage(newLang);
