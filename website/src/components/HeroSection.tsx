@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
           animate="visible"
         >
           <motion.div variants={itemVariants}>
-            <span className="hero-badge">{t('hero.badge', 'Professional Swimming School in Setia Alam')}</span>
+            <span className="hero-badge">{t('hero.badge', 'PRO SWIMMING SCHOOL IN SETIA ALAM')}</span>
           </motion.div>
           
           <motion.h1 className="hero-title" variants={itemVariants}>
@@ -66,12 +66,12 @@ const HeroSection: React.FC = () => {
               {t('hero.cta_primary', 'Start Swimming')} <ArrowRight size={20} style={{ marginLeft: '8px' }} />
             </motion.a>
             <motion.a 
-              href="#schedule" 
+              href="#pricing" 
               className="btn-secondary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {t('hero.cta_secondary', 'View Schedule')}
+              {t('hero.cta_secondary', 'View Pricing')}
             </motion.a>
           </motion.div>
         </motion.div>
