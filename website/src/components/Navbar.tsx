@@ -31,6 +31,7 @@ const Navbar: React.FC = () => {
         <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <a href="/#about" onClick={() => setMobileMenuOpen(false)}>About</a>
           <a href="/#schedule" onClick={() => setMobileMenuOpen(false)}>Schedule</a>
+          <a href="/#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
           <a href="/#reviews" onClick={() => setMobileMenuOpen(false)}>Reviews</a>
           <a href="/#social" onClick={() => setMobileMenuOpen(false)}>Community</a>
           <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="nav-contact">Contact</a>
